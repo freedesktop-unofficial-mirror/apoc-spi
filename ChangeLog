@@ -1,2 +1,5 @@
+2007-21-11  Alberto Ruiz <alberto.ruiz@sun.com>
+	* src/com/sun/apoc/spi/build.xml.in: Remove useless comments.
+
 2007-30-10  Alberto Ruiz <alberto.ruiz@sun.com>
 	* Initial commit. 
