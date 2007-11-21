@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-#*************************************************************************
-#*
-#*    $RCSfile: build.xml,v $
-#*
-#*    last change       $Author: cm122549 $ $Date: 2007/01/18 12:55:19 $
-#*    $Revision: 1.12 $
-#*
-#*    Copyright 2004, Sun Microsystems, Inc. All Rights Reserved.
-#*
-#*************************************************************************
--->
 <project name="apoc_spi" default="main" basedir="../../../../../">
     
     <property name="jarname" value="spi.jar"/>
     <property name="package" value="com/sun/apoc/spi"/>
 
-    <!-- The name of the out/dist directory (e.g. "out" or "unxsols4.pro") -->
     <property name="inpath" value="build"/>
     <property name="build.dir" value="${inpath}"/>
     <property name="build.class" value="${build.dir}/class"/>
-    <!--property name="build.doc" value="${build.dir}/doc/spi"/-->
 
     <path id="classpath">
 	<pathelement location="@LDAPJDK@"/>
@@ -62,120 +48,4 @@
         <delete file="${build.class}/${jarname}"/>
         <delete dir="${build.class}/${package}"/>
     </target>
-
-    <!--target name="preparedoc">
-        <delete dir="${build.doc}"/>
-        <mkdir dir="${build.dir}"/>
-        <mkdir dir="${build.doc}"/>
-    </target-->
-
-    <!--target name="compiledoc">
-		<javadoc
-			destdir="${build.doc}"
-			public="true"
-			author="false"
-			version="false"
-			use="true"
-			windowtitle="APOC SPI">
-			
-			<fileset dir="src" defaultexcludes="yes">
-				<include name="${package}/AssignmentProvider.java" />
-				<include name="${package}/AuthenticationException.java" />
-				<include name="${package}/CloseConnectionException.java" />
-				<include name="${package}/ConnectionException.java" />
-				<include name="${package}/ConnectionSizeLimitException.java" />
-				<include name="${package}/IllegalAssignmentException.java" />
-				<include name="${package}/IllegalAccessException.java" />
-				<include name="${package}/IllegalReadException.java" />
-				<include name="${package}/IllegalWriteException.java" />
-				<include name="${package}/InterruptedConnectionException.java" />
-				<include name="${package}/OpenConnectionException.java" />
-				<include name="${package}/PolicyMgr.java" />
-				<include name="${package}/PolicyMgrFactory.java" />
-				<include name="${package}/PolicyMgrFactoryImpl.java" />
-				<include name="${package}/Provider.java" />
-				<include name="${package}/ProviderLoadingException.java" />
-				<include name="${package}/SPIException.java" />
-				
-				<include name="${package}/cfgtree/DataType.java" />
-				<include name="${package}/cfgtree/ElementCopyException.java" />
-				<include name="${package}/cfgtree/InvalidDataTypeException.java" />
-				<include name="${package}/cfgtree/MandatoryElementException.java" />
-				<include name="${package}/cfgtree/PolicyTree.java" />
-				<include name="${package}/cfgtree/PolicyTreeConverter.java" />
-				<include name="${package}/cfgtree/PolicyTreeException.java" />
-				<include name="${package}/cfgtree/PolicyTreeFactory.java" />
-				<include name="${package}/cfgtree/ProtectedElement.java" />
-				<include name="${package}/cfgtree/ReadOnlyElementException.java" />
-				<include name="${package}/cfgtree/ReadWritePolicyTreeFactory.java" />
-				<include name="${package}/cfgtree/XMLPolicyTreeException.java" />
-
-				<include name="${package}/cfgtree/policynode/InvalidPolicyNodeException.java" />
-				<include name="${package}/cfgtree/policynode/InvalidPolicyNodeNameException.java" />
-				<include name="${package}/cfgtree/policynode/MergedPolicyNode.java" />
-				<include name="${package}/cfgtree/policynode/PolicyNode.java" />
-				<include name="${package}/cfgtree/policynode/PolicyNodeException.java" />
-
-				<include name="${package}/cfgtree/property/InvalidPropertyException.java" />
-				<include name="${package}/cfgtree/property/InvalidPropertyNameException.java" />
-				<include name="${package}/cfgtree/property/MergedProperty.java" />
-				<include name="${package}/cfgtree/property/Property.java" />
-				<include name="${package}/cfgtree/property/PropertyException.java" />
-
-				<include name="${package}/entities/Domain.java" />
-				<include name="${package}/entities/DomainTreeProvider.java" />
-				<include name="${package}/entities/Entity.java" />
-				<include name="${package}/entities/EntityException.java" />
-				<include name="${package}/entities/EntityTreeProvider.java" />
-				<include name="${package}/entities/Host.java" />
-				<include name="${package}/entities/InvalidEntityIdException.java" />
-				<include name="${package}/entities/InvalidFilterException.java" />
-				<include name="${package}/entities/Leaf.java" />
-				<include name="${package}/entities/Node.java" />
-				<include name="${package}/entities/NoSuchEntityException.java" />
-				<include name="${package}/entities/Organization.java" />
-				<include name="${package}/entities/OrganizationTreeProvider.java" />
-				<include name="${package}/entities/Role.java" />
-				<include name="${package}/entities/User.java" />
-				
-				<include name="${package}/environment/EnvironmentConstants.java" />
-				<include name="${package}/environment/EnvironmentException.java" />
-				<include name="${package}/environment/InvalidParameterException.java" />
-				<include name="${package}/environment/MissingParameterException.java" />
-				<include name="${package}/environment/ParameterException.java" />
-				<include name="${package}/environment/PasswordCodec.java" />
-				<include name="${package}/environment/RemoteEnvironmentException.java" />
-
-				<include name="${package}/policies/InvalidPolicyException.java" />
-				<include name="${package}/policies/MismatchPolicyException.java" />
-				<include name="${package}/policies/NoSuchPolicyException.java" />
-				<include name="${package}/policies/Policy.java" />
-				<include name="${package}/policies/PolicyException.java" />
-				<include name="${package}/policies/PolicyInfo.java" />
-				
-				<include name="${package}/profiles/Applicability.java" />
-				<include name="${package}/profiles/InvalidDisplayNameException.java" />
-				<include name="${package}/profiles/InvalidPriorityException.java" />
-				<include name="${package}/profiles/InvalidProfileException.java" />
-				<include name="${package}/profiles/NullProfileException.java" />
-				<include name="${package}/profiles/Profile.java" />
-				<include name="${package}/profiles/ProfileException.java" />
-				<include name="${package}/profiles/ProfileProvider.java" />
-				<include name="${package}/profiles/ProfileRepository.java" />
-				<include name="${package}/profiles/ProfileStreamException.java" />
-				<include name="${package}/profiles/ProfileZipException.java" />
-				<include name="${package}/profiles/UnknownApplicabilityException.java" />
-			</fileset>
-
-    	    <doctitle><![CDATA[<h1>APOC Service Provider Interface</h1>]]></doctitle>
-    	    <bottom><![CDATA[<center><i>Copyright &#169; 2005 Sun Microsystems, Inc. All Rights Reserved.</i></center>]]></bottom>
-    	  </javadoc>
-    </target-->
-
-    <!--target name="zipdoc">
-        <zip destfile="${build.doc}/../apoc_spi-doc.zip"
-             basedir="${build.doc}"/>
-    </target-->
-
-    <!--target name="doc" depends="preparedoc, compiledoc, zipdoc"/-->  	
 </project>
