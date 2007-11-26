@@ -1,3 +1,6 @@
+2007-26-11  Alberto Ruiz <alberto.ruiz@sun.com>
+	* INSTALL: Updates in the install documentation.
+
 2007-21-11  Alberto Ruiz <alberto.ruiz@sun.com>
 	* src/com/sun/apoc/spi/build.xml.in: Remove useless comments.
 
